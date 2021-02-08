@@ -31,7 +31,8 @@ Merchants that are not PCI-Complied and want to fully customize and host their o
 You can tokenize the card information and save the token to provide allow your customers to pay using a previously saved card. This method does not store the card information directly on your system, but saves a token referncing the card instead. This way, you save yourself PCI-Compliance costs.
 
 ### 1. Tokenzing the Card
-To tokenize the card, send the following request after the card information was collected into a session as in Step One, or after the Payment is Complete in :
+To tokenize the card, send the following request after the card information was collected into a session as in Step One, or after the Payment is Complete in:
+
 **Request:**
 ```
 POST  https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/token
