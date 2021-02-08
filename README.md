@@ -15,7 +15,7 @@ The following <ins>unofficial</ins> guide contains a simplified explanation of M
 
 
 ## Hosted Checkout Integration Method
-[Short guide for the Hosted Checkout Integration method can be found here.]()
+[Short guide for the Hosted Checkout Integration method can be found here.](https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/hosted-checkout.md)
 
 ## Hosted Session Integration Method
 [Short guide for the Hosted Session Integration method can be found here.]()
