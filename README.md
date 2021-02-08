@@ -6,10 +6,10 @@ The following <ins>unofficial</ins> guide contains a simplified explanation of M
 
 ## Content
 1. [Comparison of Integration Methods](#Comparison-of-Integration-Methods)
-2. Hosted Checkout Integration Method
-3. Hosted Session Integration Method
-4. Direct Integration Method
-5. Mobile SDKs
+2. [Hosted Checkout Integration Method](#Hosted-Checkout-Integration-Methods)
+3. [Hosted Session Integration Method]
+4. [Direct Integration Method]
+5. [Mobile SDKs]
 
 ## Comparison of Integration Methods
 
