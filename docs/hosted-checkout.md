@@ -1,4 +1,4 @@
-# Mastercard Gateway Hosted Checkout Integration Sample
+# Hosted Checkout Integration Guide & Samples
 A quick guide with samples using the Hosted Checkout method in Mastercard Gateway. This is the easiest and fastest method to start accepting payments. It is also fully PCI-Complied as you don't have to to handle any payment details. The drawback for this method is that you will have limited control over your payment page look and feel.
 
 
