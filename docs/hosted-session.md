@@ -19,5 +19,79 @@ Merchants that are not PCI-Complied and want to fully customize and host their o
 - HTML. 
 - Basic understanding of payments (Authorization Response, Transaction Types, etc).
 
-
 ## First Step: Collect the Card Information Into a Payment Session
+
+## Second Step: Initiate 3DS Authentication
+
+## Third Step: Authenticate Payer with 3DS
+
+## Fourth Step: Make A Payment Transaction
+
+## Bonus: Saving the Card Infomration for Express Checkout
+You can tokenize the card information and save the token to provide allow your customers to pay using a previously saved card. This method does not store the card information directly on your system, but saves a token referncing the card instead. This way, you save yourself PCI-Compliance costs.
+
+### 1. Tokenzing the Card
+To tokenize the card, send the following request after the card information was collected into a session as in Step One, or after the Payment is Complete in :
+**Request:**
+```
+POST  https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/token
+```
+```js
+{
+	"session": {
+		"id": "{{SessionId}}" // This is the session.id value that was generated in the first step 
+	},
+	"sourceOfFunds": {
+		"type": "CARD"
+	}
+}
+```
+**Response:**
+```js
+{
+    "repositoryId": "<Merchant ID>",
+    "response": {
+        "gatewayCode": "BASIC_VERIFICATION_SUCCESSFUL"
+    },
+    "result": "SUCCESS",
+    "sourceOfFunds": {
+        "provided": {
+            "card": {
+                "brand": "MASTERCARD",
+                "expiry": "0521",
+                "fundingMethod": "CREDIT",
+                "issuer": "AFRILAND FIRST BANK",
+                "nameOnCard": "Nawaf",
+                "number": "512345xxxxxx0008",
+                "scheme": "MASTERCARD"
+            }
+        },
+        "type": "CARD"
+    },
+    "status": "VALID",
+    "token": "5123458154060008", // This is the token number, which references the saved card. This is what you would store in your system for your future payment.
+    "usage": {
+        "lastUpdated": "2021-01-29T09:09:50.837Z",
+        "lastUpdatedBy": "<Merchant ID>",
+        "lastUsed": "2020-10-27T03:46:16.089Z"
+    },
+    "verificationStrategy": "BASIC"
+}
+```
+
+Take note of the parameter `"token": "5123458154060008"`, this is the token number referenceing the saved card. Store this value in your system for future payments.
+
+### 2. Making a Payment Using Tokenized a Card
+You can find the guide for payment using a token here.
+
+## Testing
+You can find the official test cards and the guide to use the Gateway Simulator [here](https://ap-gateway.mastercard.com/api/documentation/integrationGuidelines/supportedFeatures/testAndGoLive.html?locale=en_US).
+
+## Full Official References
+This guide is unofficial, it is meant to simplify the official guides here:
+
+* [Official Hosted Checkout Guide](https://ap-gateway.mastercard.com/api/documentation/integrationGuidelines/hostedCheckout/integrationModelHostedCheckout.html)
+* [Official Checkout.js Library Reference](https://ap-gateway.mastercard.com/api/documentation/apiDocumentation/checkout/version/latest/api.html?locale=en_US)
+* [Official API Reference](https://ap-gateway.mastercard.com/api/documentation/apiDocumentation/rest-json/version/latest/api.html?locale=en_US)
+
+For any issues with your integration, you need to reach out to your payment provider. 
