@@ -20,7 +20,7 @@ The following <ins>unofficial</ins> guide contains a simplified explanation of M
 ## 3. Hosted Session Integration Method
 [Short guide for the Hosted Session Integration method can be found here.]()
 
-## 4. Hosted Checkout Integration Method
+## 4. Direct Integration Method
 [Short guide for the Direct Integration method can be found here.]()
 
 ## 5. Mobile SDKs
