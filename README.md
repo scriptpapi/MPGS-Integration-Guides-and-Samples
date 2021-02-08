@@ -16,3 +16,15 @@ The following <ins>unofficial</ins> guide contains a simplified explanation of M
 
 ## 2. Hosted Checkout Integration Method
 [Short guide for the Hosted Checkout Integration method can be found here.]()
+
+## 3. Hosted Session Integration Method
+[Short guide for the Hosted Session Integration method can be found here.]()
+
+## 4. Hosted Checkout Integration Method
+[Short guide for the Direct Integration method can be found here.]()
+
+## 5. Mobile SDKs
+- [IOS SDK](https://github.com/Mastercard-Gateway/gateway-ios-sdk)
+- [Android SDK](https://github.com/Mastercard-Gateway/gateway-android-sdk)
+- [This guide explains how you can develop your own SDK for other platforms]()
+
