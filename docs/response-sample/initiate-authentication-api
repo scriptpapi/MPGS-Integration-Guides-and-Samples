@@ -1,0 +1,60 @@
+{
+    "authentication": {
+        "3ds1": {
+            "veResEnrolled": "Y"
+        },
+        "acceptVersions": "3DS1,3DS2",
+        "channel": "PAYER_BROWSER",
+        "purpose": "PAYMENT_TRANSACTION",
+        "redirect": {
+            "customized": {
+                "3DS": {
+                    "methodPostData": "e30=",
+                    "methodUrl": "https://mtf.gateway.mastercard.com/acs/mastercard/v2/empty"
+                }
+            }
+        },
+        "redirectHtml": "<script id=\"initiate-authentication-script\"></script>",
+        "version": "3DS1"
+    },
+    "correlationId": "test",
+    "merchant": "<Merchant ID>",
+    "order": {
+        "authenticationStatus": "AUTHENTICATION_AVAILABLE",
+        "creationTime": "2021-02-10T15:42:34.375Z",
+        "currency": "SAR",
+        "id": "OrdID_112",
+        "lastUpdatedTime": "2021-02-10T15:42:34.351Z",
+        "merchantCategoryCode": "1234",
+        "reference": "OrdRef_112",
+        "status": "AUTHENTICATION_INITIATED",
+        "totalAuthorizedAmount": 0,
+        "totalCapturedAmount": 0,
+        "totalRefundedAmount": 0
+    },
+    "response": {
+        "gatewayCode": "AUTHENTICATION_IN_PROGRESS",
+        "gatewayRecommendation": "PROCEED"
+    },
+    "result": "SUCCESS",
+    "sourceOfFunds": {
+        "provided": {
+            "card": {
+                "number": "529415xxxxxx8418",
+                "scheme": "MASTERCARD"
+            }
+        },
+        "type": "CARD"
+    },
+    "timeOfLastUpdate": "2021-02-10T15:42:34.351Z",
+    "timeOfRecord": "2021-02-10T15:42:34.375Z",
+    "transaction": {
+        "amount": 0,
+        "authenticationStatus": "AUTHENTICATION_AVAILABLE",
+        "currency": "SAR",
+        "id": "TxnID_112",
+        "reference": "TrxRef_112",
+        "type": "AUTHENTICATION"
+    },
+    "version": "57"
+}
