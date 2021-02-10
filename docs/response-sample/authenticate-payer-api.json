@@ -1,0 +1,67 @@
+{
+    "authentication": {
+        "3ds1": {
+            "veResEnrolled": "Y"
+        },
+        "payerInteraction": "REQUIRED",
+        "redirect": {
+            "domainName": "mtf.gateway.mastercard.com"
+        },
+        "redirectHtml": "<div id=\"redirectTo3ds1AcsSimple\" xmlns=\"http://www.w3.org/1999/html\"> <iframe id=\"redirectTo3ds1Frame\" name=\"redirectTo3ds1Frame\" height=\"100%\" width=\"100%\" > </iframe> <form id =\"redirectTo3ds1Form\" method=\"POST\" action=\"https://mtf.gateway.mastercard.com/acs/MastercardACS/c0fa380d-aee9-4a50-8589-0cd02559cef9\" target=\"redirectTo3ds1Frame\"> <input type=\"hidden\" name=\"PaReq\" value=\"eAFVUdtugkAUfDfxHwjvZQGXi+a4hpZWTVNr1CZ93S4bpRFQLipf1pf+U3+hZxG1BR6Y2TPDMAdGp2SrHWRexFk61C3D1DWZiiyK0/VQf1s93fn6iHU7sNrkUoZLKapcMniRRcHXUosj1Jjq8p2e16NUZzAPFnLPoPVkaGnYQC4QpbnY8LRkwMX+fjpjDrU96gFpISQyn4aM2qbbB3IGkPJEsqCKuIjLWhvzBOMBaVgQWZWWec18agK5AKjyLduU5a4YEHI8Hg3eiteN1hBZQoCoISC3RPNKZSvwB09xxNzDLArcmobj8N2K/M/lhznp26/F8/hxCERNQMRLyWzTttSjWc6AegMHYzQ88ERFY8tgof18fWvYBB61JOzUt4LzBFYI5C8BWHOOe6iZ62N5VwTytMtSiabIXt+B3II/TFSxosQKHbtPLQdv33V9avmq4uZAucTYGGZ2GhsFgCgpabeHpTQbRubf5rudX610tqg=\" /> <input type=\"hidden\" name=\"TermUrl\" value=\"https://mtf.gateway.mastercard.com/callbackInterface/gateway/a40ff2dd61417a8e01d463ba5035f08472c4c39cca4c90a5fc97737512f2f48b\" /> <input type=\"hidden\" name=\"MD\" value=\"\" /> </form> <script id=\"authenticate-payer-script\"> var e=document.getElementById(\"redirectTo3ds1Form\"); if (e) { e.submit(); if (e.parentNode !== null) { e.parentNode.removeChild(e); } } </script> </div>",
+        "version": "3DS1"
+    },
+    "correlationId": "test",
+    "device": {
+        "browser": "MOZILLA",
+        "ipAddress": "127.0.0.1"
+    },
+    "merchant": "<Merchant ID>",
+    "order": {
+        "amount": 1,
+        "authenticationStatus": "AUTHENTICATION_PENDING",
+        "creationTime": "2021-02-10T15:47:50.378Z",
+        "currency": "SAR",
+        "id": "OrdID_113",
+        "lastUpdatedTime": "2021-02-10T15:47:56.334Z",
+        "merchantCategoryCode": "1234",
+        "reference": "OrdRef_113",
+        "status": "AUTHENTICATION_INITIATED",
+        "totalAuthorizedAmount": 0,
+        "totalCapturedAmount": 0,
+        "totalRefundedAmount": 0,
+        "valueTransfer": {
+            "accountType": "NOT_A_TRANSFER"
+        }
+    },
+    "response": {
+        "gatewayCode": "PENDING",
+        "gatewayRecommendation": "PROCEED"
+    },
+    "result": "PENDING",
+    "sourceOfFunds": {
+        "provided": {
+            "card": {
+                "expiry": {
+                    "month": "5",
+                    "year": "21"
+                },
+                "number": "529415xxxxxx8418",
+                "scheme": "MASTERCARD"
+            }
+        },
+        "type": "CARD"
+    },
+    "timeOfLastUpdate": "2021-02-10T15:47:56.334Z",
+    "timeOfRecord": "2021-02-10T15:47:50.378Z",
+    "transaction": {
+        "acquirer": {
+            "merchantId": "42069"
+        },
+        "amount": 1,
+        "authenticationStatus": "AUTHENTICATION_PENDING",
+        "currency": "SAR",
+        "id": "TxnID_113",
+        "type": "AUTHENTICATION"
+    },
+    "version": "57"
+}
