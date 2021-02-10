@@ -179,10 +179,13 @@ PUT	https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/o
 }
 ```
 **Trimmed Response Sample:**
-A sample response can be found (here)[https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/response-sample/initiate-authentication-api.json].
+A sample response can be found [here](https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/response-sample/initiate-authentication-api.json).
 
 
 ## Third Step: Authenticate Payer with 3DS
+After you have sent the API request for the Second Step, just simply make this request next:
+
+**Request:**
 ```
 PUT	https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/order/OrdID_{{AttemptNum}}/transaction/TxnID_{{AttemptNum}}
 ```
@@ -218,7 +221,7 @@ PUT	https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/o
 }
 ```
 **Trimmed Response Sample:**
-A sample response can be found (here)https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/response-sample/authenticate-payer-api.json].
+A sample response can be found [here](https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/response-sample/authenticate-payer-api.json).
 
 ## Fourth Step: Make A Payment Transaction
 
