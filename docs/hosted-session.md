@@ -20,6 +20,31 @@ Merchants that are not PCI-Complied and want to fully customize and host their o
 - Basic understanding of payments (Authorization Response, Transaction Types, etc).
 
 ## First Step: Collect the Card Information Into a Payment Session
+On your front-end, import the Session.js library into your to create the payment input HTML page:
+```HTML
+<html>
+	<head>
+		<!-- INCLUDE SESSION.JS JAVASCRIPT LIBRARY -->
+		<script src="https://<Bank URL>/form/version/<API Version>/merchant/<Merchant ID>/session.js"></script>
+		<!-- APPLY CLICK-JACKING STYLING AND HIDE CONTENTS OF THE PAGE -->
+		<style id="antiClickjack">body{display:none !important;}</style>
+	</head>
+	<body>
+		<!-- CREATE THE HTML FOR THE PAYMENT PAGE -->
+		<div>Please enter your payment details:</div>
+		<h3>Credit Card</h3>
+		<div>Card Number: <input type="text" id="card-number" class="input-field" title="card number" aria-label="enter your card number" value="" tabindex="1" readonly></div>
+		<div>Expiry Month:<input type="text" id="expiry-month" class="input-field" title="expiry month" aria-label="two digit expiry month" value="" tabindex="2" readonly></div>
+		<div>Expiry Year:<input type="text" id="expiry-year" class="input-field" title="expiry year" aria-label="two digit expiry year" value="" tabindex="3" readonly></div>
+		<div>Security Code:<input type="text" id="security-code" class="input-field" title="security code" aria-label="three digit CCV security code" value="" tabindex="4" readonly></div>
+		<div>Cardholder Name:<input type="text" id="cardholder-name" class="input-field" title="cardholder name" aria-label="enter name on card" value="" tabindex="5" readonly></div>
+		<div><button id="payButton" onclick="pay('card');">Pay Now</button></div>
+	</body>
+
+</html>
+```
+
+
 
 ## Second Step: Initiate 3DS Authentication
 
