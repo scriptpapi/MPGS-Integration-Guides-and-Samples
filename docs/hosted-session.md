@@ -138,11 +138,87 @@ On your front-end, import the Session.js library into your to create the payment
 </html>
 ```
 
+When you open this HTML, enter the card information and then click "Pay Now", a Payment Session will be generated as you can see in the console logs:
+```
+Session updated with data: SESSION0002695081404E6099215K60	hosted_session.html:62
+Card Entered: 529415xxxxxx8418					hosted_session.html:63 
+Card Type: MASTERCARD						hosted_session.html:64
+Security code was provided.					hosted_session.html:68 
+The user entered a MasterCard credit card.			hosted_session.html:73 
+```
 
+Token note of the Session.id geenrated `SESSION0002695081404E6099215K60`. This value references the card information and will need to be saved for the next steps.
 
 ## Second Step: Initiate 3DS Authentication
+Now we will perform 3DS authentication on the transaction. If 3DS Authentication is not required for you, you can just skip to the fourth step.
+
+**Request:**
+```
+PUT	https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/order/OrdID_{{AttemptNum}}/transaction/TxnID_{{AttemptNum}}
+```
+**Body:**
+```js
+{
+	"apiOperation":"INITIATE_AUTHENTICATION",
+	"authentication":{ 
+		"acceptVersions":"3DS1,3DS2",
+	    "channel":"PAYER_BROWSER",
+	    "purpose":"PAYMENT_TRANSACTION"
+	},
+	"correlationId":"test",
+	"order":{
+		"reference": "OrdRef_{{AttemptNum}}",
+    	"currency":"SAR"
+	},
+	"session": {
+		"id": "{{SessionId}}"
+	},
+	"transaction": {
+		"reference": "TrxRef_{{AttemptNum}}"
+	}
+}
+```
+**Trimmed Response Sample:**
+A sample response can be found (here)[https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/response-sample/initiate-authentication-api.json].
+
 
 ## Third Step: Authenticate Payer with 3DS
+```
+PUT	https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/order/OrdID_{{AttemptNum}}/transaction/TxnID_{{AttemptNum}}
+```
+**Body:**
+```js
+{
+	"apiOperation": "AUTHENTICATE_PAYER",
+	"authentication":{
+		"redirectResponseUrl":	"https://localhost:8000/"
+	},
+	"correlationId":"test",
+	"device": {
+		"browser": "MOZILLA",
+	    "browserDetails": {
+			"3DSecureChallengeWindowSize": "FULL_SCREEN",
+		    "acceptHeaders": "application/json",
+		    "colorDepth": 24,
+		    "javaEnabled": true,
+		    "language": "en-US",
+		    "screenHeight": 640,
+		    "screenWidth": 480,
+		    "timeZone": 273
+	    },
+		"ipAddress": "127.0.0.1"
+	},
+	"order":{
+		"amount":"1.00",
+	    "currency":"SAR"
+	},
+	"session": {
+		"id": "{{SessionId}}"
+	}
+}
+```
+**Trimmed Response Sample:**
+A sample response can be found (here)https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/response-sample/authenticate-payer-api.json].
 
 ## Fourth Step: Make A Payment Transaction
 
