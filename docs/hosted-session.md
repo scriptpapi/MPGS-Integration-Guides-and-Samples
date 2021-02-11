@@ -178,7 +178,7 @@ PUT	https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/o
 	}
 }
 ```
-**Trimmed Response Sample:**
+**Response**
 A sample response can be found [here](https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/response-sample/initiate-authentication-api.json).
 
 
@@ -194,7 +194,7 @@ PUT	https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/o
 {
 	"apiOperation": "AUTHENTICATE_PAYER",
 	"authentication":{
-		"redirectResponseUrl":	"https://localhost:8000/"
+		"redirectResponseUrl":	"https://merchant.com/your-redirection-page"
 	},
 	"correlationId":"test",
 	"device": {
@@ -220,10 +220,46 @@ PUT	https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/o
 	}
 }
 ```
-**Trimmed Response Sample:**
+**Response:**
 A sample response can be found [here](https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/response-sample/authenticate-payer-api.json).
 
+An HTML will be returned to the user in the parameter `authentication.redirectHtml`. That HTML will containt the 3DS interaction page. You need to display the contents of that HTML to the user in order for them to complete the authentication. This part of the flow is completely between the cardholder and their issuing bank.
+
 ## Fourth Step: Make A Payment Transaction
+After the authentication is complete, you can now send the payment request:
+
+**Request:**
+```
+PUT	https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/order/OrdID_{{AttemptNum}}/transaction/1
+```
+**Body:**
+```js
+	{
+	"apiOperation": "PAY",
+	"authentication":{
+		"transactionId": "TxnID_{{AttemptNum}}"
+	},
+	"order": {
+		"amount": 1.00,
+		"currency": "SAR",
+		"reference": "OrdRef_{{AttemptNum}}"
+	},
+	"transaction": {
+		"reference": "TrxRef_{{AttemptNum}}"
+    	},
+	"session": {
+		"id": "{{SessionId}}"
+	},
+	"sourceOfFunds": {
+		"type": "CARD"
+	}
+}
+```
+**Response:**
+A sample of a successful payment response can be found [here](https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/response-sample/pay-api.json).
+
+A successful payment is only when the acquirerCode for your transaction 
+
 
 ## Bonus: Saving the Card Infomration for Express Checkout
 You can tokenize the card information and save the token to provide allow your customers to pay using a previously saved card. This method does not store the card information directly on your system, but saves a token referncing the card instead. This way, you save yourself PCI-Compliance costs.
@@ -246,37 +282,7 @@ POST  https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}
 }
 ```
 **Response:**
-```js
-{
-    "repositoryId": "<Merchant ID>",
-    "response": {
-        "gatewayCode": "BASIC_VERIFICATION_SUCCESSFUL"
-    },
-    "result": "SUCCESS",
-    "sourceOfFunds": {
-        "provided": {
-            "card": {
-                "brand": "MASTERCARD",
-                "expiry": "0521",
-                "fundingMethod": "CREDIT",
-                "issuer": "AFRILAND FIRST BANK",
-                "nameOnCard": "Nawaf",
-                "number": "512345xxxxxx0008",
-                "scheme": "MASTERCARD"
-            }
-        },
-        "type": "CARD"
-    },
-    "status": "VALID",
-    "token": "5123458154060008", // This is the token number, which references the saved card. This is what you would store in your system for your future payment.
-    "usage": {
-        "lastUpdated": "2021-01-29T09:09:50.837Z",
-        "lastUpdatedBy": "<Merchant ID>",
-        "lastUsed": "2020-10-27T03:46:16.089Z"
-    },
-    "verificationStrategy": "BASIC"
-}
-```
+A sample response can be found [here](https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/response-sample/tokenize-api.json).
 
 Take note of the parameter `"token": "5123458154060008"`, this is the token number referenceing the saved card. Store this value in your system for future payments.
 
