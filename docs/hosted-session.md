@@ -298,8 +298,8 @@ You can also find the Postman envionement for the collections [here](https://git
 
 ## Full Official References
 This guide is unofficial, it is meant to simplify the official guides here:
-* [Official Hosted Checkout Guide](https://ap-gateway.mastercard.com/api/documentation/integrationGuidelines/hostedCheckout/integrationModelHostedCheckout.html)
-* [Official Checkout.js Library Reference](https://ap-gateway.mastercard.com/api/documentation/apiDocumentation/checkout/version/latest/api.html?locale=en_US)
+* [Official Hosted Session Guide](https://ap-gateway.mastercard.com/api/documentation/integrationGuidelines/hostedSession/integrationModelHostedSession.html)
+* [Official Session.js Library Reference](https://ap-gateway.mastercard.com/api/documentation/apiDocumentation/session/version/latest/api.html?locale=en_US)
 * [Official API Reference](https://ap-gateway.mastercard.com/api/documentation/apiDocumentation/rest-json/version/latest/api.html?locale=en_US)
 
 For any issues with your integration, you need to reach out to your payment provider. 
