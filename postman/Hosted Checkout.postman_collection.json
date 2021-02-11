@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "184bd4c7-70fc-442c-9261-071590e15002",
+		"name": "Hosted Checkout",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Checkout Session",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "merchant.{{MerchantId}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{ApiPassword}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"apiOperation\": \"CREATE_CHECKOUT_SESSION\",\n\t\"interaction\": {\n\t\t\"operation\": \"PURCHASE\",\n\t\t\"returnUrl\": \"https://developer.mastercard.com/\",\n\t\t\"locale\": \"en-US\"\n\t},\n\t\"customer\": {\n\t\t\"email\": \"nawaf.abdullah@mastercard.com\"\n\t},\n\t\"order\": {\n\t\t\"amount\": 100.00,\n\t\t\"currency\": \"SAR\",\n\t\t\"id\": \"OrdID_{{AttemptNum}}\",\n\t\t\"reference\": \"OrdRef_{{AttemptNum}}\",\n\t\t\"description\": \"Some order TEst Descvription\"\n\t},\n\t\"transaction\": {\n\t\t\"reference\": \"TrxRef_{{AttemptNum}}\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/session/",
+					"protocol": "https",
+					"host": [
+						"{{MsoUrl}}"
+					],
+					"path": [
+						"api",
+						"rest",
+						"version",
+						"{{ApiVersion}}",
+						"merchant",
+						"{{MerchantId}}",
+						"session",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Order",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "merchant.{{MerchantId}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{ApiPassword}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/order/OrdID_{{AttemptNum}}",
+					"protocol": "https",
+					"host": [
+						"{{MsoUrl}}"
+					],
+					"path": [
+						"api",
+						"rest",
+						"version",
+						"{{ApiVersion}}",
+						"merchant",
+						"{{MerchantId}}",
+						"order",
+						"OrdID_{{AttemptNum}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve Transaction",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{ApiPassword}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "merchant.{{MerchantId}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/order/OrdID_{{AttemptNum}}/transaction/1",
+					"protocol": "https",
+					"host": [
+						"{{MsoUrl}}"
+					],
+					"path": [
+						"api",
+						"rest",
+						"version",
+						"{{ApiVersion}}",
+						"merchant",
+						"{{MerchantId}}",
+						"order",
+						"OrdID_{{AttemptNum}}",
+						"transaction",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tokenize",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{ApiPassword}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "merchant.{{MerchantId}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"session\": {\n\t\t\"id\": \"{{SessionId}}\"\n\t},\n\t\"sourceOfFunds\": {\n\t\t\"type\": \"CARD\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/token",
+					"protocol": "https",
+					"host": [
+						"{{MsoUrl}}"
+					],
+					"path": [
+						"api",
+						"rest",
+						"version",
+						"{{ApiVersion}}",
+						"merchant",
+						"{{MerchantId}}",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
