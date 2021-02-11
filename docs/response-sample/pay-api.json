@@ -1,0 +1,191 @@
+{
+    "authentication": {
+        "3ds": {
+            "acsEci": "02",
+            "authenticationToken": "kHyn+7YFi1EUAREAAAAvNUe6Hv8=",
+            "transactionId": "dd190f27-d5c8-4650-bf46-e2cc8cd5d307"
+        },
+        "3ds2": {
+            "dsTransactionId": "dd190f27-d5c8-4650-bf46-e2cc8cd5d307",
+            "protocolVersion": "2.1.0",
+            "transactionStatus": "Y"
+        },
+        "transactionId": "TxnID_118",
+        "version": "3DS2"
+    },
+    "authorizationResponse": {
+        "cardSecurityCodeError": "M",
+        "commercialCard": "888",
+        "commercialCardIndicator": "3",
+        "financialNetworkCode": "777",
+        "posData": "1025100006600",
+        "posEntryMode": "812",
+        "processingCode": "003000",
+        "responseCode": "00",
+        "stan": "137174",
+        "transactionIdentifier": "123456789"
+    },
+    "device": {
+        "browser": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.104 Safari/537.36",
+        "ipAddress": "172.30.89.234"
+    },
+    "gatewayEntryPoint": "WEB_SERVICES_API",
+    "merchant": "TEST42069",
+    "order": {
+        "amount": 1,
+        "authenticationStatus": "AUTHENTICATION_SUCCESSFUL",
+        "chargeback": {
+            "amount": 0,
+            "currency": "SAR"
+        },
+        "creationTime": "2021-02-11T14:12:48.116Z",
+        "currency": "SAR",
+        "fundingStatus": "IN_PROGRESS",
+        "id": "OrdID_118",
+        "lastUpdatedTime": "2021-02-11T14:13:55.390Z",
+        "merchantAmount": 1,
+        "merchantCategoryCode": "1234",
+        "merchantCurrency": "SAR",
+        "reference": "OrdRef_118",
+        "status": "CAPTURED",
+        "totalAuthorizedAmount": 1,
+        "totalCapturedAmount": 1,
+        "totalRefundedAmount": 0
+    },
+    "response": {
+        "acquirerCode": "00",
+        "acquirerMessage": "Approved",
+        "cardSecurityCode": {
+            "acquirerCode": "M",
+            "gatewayCode": "MATCH"
+        },
+        "gatewayCode": "APPROVED"
+    },
+    "result": "SUCCESS",
+    "risk": {
+        "response": {
+            "gatewayCode": "ACCEPTED",
+            "review": {
+                "decision": "NOT_REQUIRED"
+            },
+            "rule": [
+                {
+                    "data": "NO_LIABILITY_SHIFT",
+                    "name": "MERCHANT_3D_SECURE",
+                    "recommendation": "NO_ACTION",
+                    "type": "MERCHANT_RULE"
+                },
+                {
+                    "data": "512345",
+                    "name": "MERCHANT_BIN_RANGE",
+                    "recommendation": "NO_ACTION",
+                    "type": "MERCHANT_RULE"
+                },
+                {
+                    "data": "M",
+                    "name": "MERCHANT_CSC",
+                    "recommendation": "NO_ACTION",
+                    "type": "MERCHANT_RULE"
+                },
+                {
+                    "data": "172.30.89.234",
+                    "name": "MERCHANT_IP_ADDRESS_RANGE",
+                    "recommendation": "NO_ACTION",
+                    "type": "MERCHANT_RULE"
+                },
+                {
+                    "data": "UK1",
+                    "name": "MERCHANT_IP_COUNTRY",
+                    "recommendation": "NO_ACTION",
+                    "type": "MERCHANT_RULE"
+                },
+                {
+                    "name": "SUSPECT_CARD_LIST",
+                    "recommendation": "NO_ACTION",
+                    "type": "MERCHANT_RULE"
+                },
+                {
+                    "name": "TRUSTED_CARD_LIST",
+                    "recommendation": "NO_ACTION",
+                    "type": "MERCHANT_RULE"
+                },
+                {
+                    "data": "NO_RULES",
+                    "name": "MSO_3D_SECURE",
+                    "recommendation": "NO_ACTION",
+                    "type": "MSO_RULE"
+                },
+                {
+                    "data": "512345",
+                    "name": "MSO_BIN_RANGE",
+                    "recommendation": "NO_ACTION",
+                    "type": "MSO_RULE"
+                },
+                {
+                    "data": "M",
+                    "name": "MSO_CSC",
+                    "recommendation": "NO_ACTION",
+                    "type": "MSO_RULE"
+                },
+                {
+                    "data": "172.30.89.234",
+                    "name": "MSO_IP_ADDRESS_RANGE",
+                    "recommendation": "NO_ACTION",
+                    "type": "MSO_RULE"
+                },
+                {
+                    "data": "UK1",
+                    "name": "MSO_IP_COUNTRY",
+                    "recommendation": "NO_ACTION",
+                    "type": "MSO_RULE"
+                }
+            ]
+        }
+    },
+    "sourceOfFunds": {
+        "provided": {
+            "card": {
+                "brand": "MASTERCARD",
+                "expiry": {
+                    "month": "5",
+                    "year": "21"
+                },
+                "fundingMethod": "CREDIT",
+                "issuer": "AFRILAND FIRST BANK",
+                "nameOnCard": "Nawaf",
+                "number": "512345xxxxxx0008",
+                "scheme": "MASTERCARD",
+                "storedOnFile": "NOT_STORED"
+            }
+        },
+        "type": "CARD"
+    },
+    "timeOfLastUpdate": "2021-02-11T14:13:55.390Z",
+    "timeOfRecord": "2021-02-11T14:13:55.156Z",
+    "transaction": {
+        "acquirer": {
+            "batch": 20210211,
+            "date": "0211",
+            "id": "SYSTEST_ACQ_S2I",
+            "merchantId": "TEST42069",
+            "settlementDate": "2021-02-11",
+            "timeZone": "+1000",
+            "transactionId": "123456789"
+        },
+        "amount": 1,
+        "authenticationStatus": "AUTHENTICATION_SUCCESSFUL",
+        "authorizationCode": "137174",
+        "currency": "SAR",
+        "funding": {
+            "status": "IN_PROGRESS"
+        },
+        "id": "1",
+        "receipt": "104214137174",
+        "reference": "TrxRef_118",
+        "source": "INTERNET",
+        "stan": "137174",
+        "terminal": "555",
+        "type": "PAYMENT"
+    },
+    "version": "57"
+}
