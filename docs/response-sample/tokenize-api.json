@@ -1,0 +1,29 @@
+{
+    "repositoryId": "<Merchant ID>",
+    "response": {
+        "gatewayCode": "BASIC_VERIFICATION_SUCCESSFUL"
+    },
+    "result": "SUCCESS",
+    "sourceOfFunds": {
+        "provided": {
+            "card": {
+                "brand": "MASTERCARD",
+                "expiry": "0521",
+                "fundingMethod": "CREDIT",
+                "issuer": "AFRILAND FIRST BANK",
+                "nameOnCard": "Nawaf",
+                "number": "512345xxxxxx0008",
+                "scheme": "MASTERCARD"
+            }
+        },
+        "type": "CARD"
+    },
+    "status": "VALID",
+    "token": "5123458154060008", // This is the token number, which references the saved card. This is what you would store in your system for your future payment.
+    "usage": {
+        "lastUpdated": "2021-01-29T09:09:50.837Z",
+        "lastUpdatedBy": "<Merchant ID>",
+        "lastUsed": "2020-10-27T03:46:16.089Z"
+    },
+    "verificationStrategy": "BASIC"
+}
