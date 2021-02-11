@@ -1,0 +1,25 @@
+{
+    "merchant": "<Merchant ID>",
+    "session": {
+        "id": "SESSION0002816562472I0271878F98",
+        "updateStatus": "SUCCESS",
+        "version": "afda935602"
+    },
+    "sourceOfFunds": {
+        "provided": {
+            "card": {
+                "brand": "MASTERCARD",
+                "expiry": {
+                    "month": "5",
+                    "year": "21"
+                },
+                "fundingMethod": "CREDIT",
+                "nameOnCard": "Nawaf",
+                "number": "512345xxxxxx0008",
+                "scheme": "MASTERCARD",
+                "securityCode": "xxx"
+            }
+        }
+    },
+    "version": "57"
+}
