@@ -30,7 +30,7 @@
         "ipAddress": "172.30.89.234"
     },
     "gatewayEntryPoint": "WEB_SERVICES_API",
-    "merchant": "TEST42069",
+    "merchant": "<Merchant ID>",
     "order": {
         "amount": 1,
         "authenticationStatus": "AUTHENTICATION_SUCCESSFUL",
@@ -167,7 +167,7 @@
             "batch": 20210211,
             "date": "0211",
             "id": "SYSTEST_ACQ_S2I",
-            "merchantId": "TEST42069",
+            "merchantId": "<Merchant ID>",
             "settlementDate": "2021-02-11",
             "timeZone": "+1000",
             "transactionId": "123456789"
