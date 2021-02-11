@@ -1,0 +1,11 @@
+{
+    "merchant": "<Merchant ID>",
+    "result": "SUCCESS",
+    "session": {
+        "aes256Key": "s5e94bi96/t1TSvbCXfAkstzVKsGZe/0SmSaNnoKVAA=",
+        "authenticationLimit": 5,
+        "id": "SESSION0002816562472I0271878F98",
+        "updateStatus": "NO_UPDATE",
+        "version": "4302083301"
+    }
+}
