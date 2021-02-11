@@ -18,10 +18,10 @@ The following <ins>unofficial</ins> guide contains a simplified explanation of M
 [Short guide for the Hosted Checkout Integration method can be found here.](https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/hosted-checkout.md)
 
 ## Hosted Session Integration Method
-[Short guide for the Hosted Session Integration method can be found here.]()
+[Short guide for the Hosted Session Integration method can be found here.](https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/hosted-session.md)
 
 ## Direct Integration Method
-[Short guide for the Direct Integration method can be found here.]()
+[Short guide for the Direct Integration method can be found here.](https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/direct.md)
 
 ## Mobile SDKs
 - [IOS SDK](https://github.com/Mastercard-Gateway/gateway-ios-sdk)
