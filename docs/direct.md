@@ -20,23 +20,51 @@ Merchants that are PCI-Complied and want to have full control over the payment e
 - HTML. 
 - Basic understanding of payments (Authorization Response, Transaction Types, etc).
 
+
 ## First Step: Create a Session
-On your front-end, import the Session.js library into your to create the payment input HTML page. You can copy and paste the demo code below in an empty HTML file for testing.
-
-
-When you open this HTML, enter the card information and then click "Pay Now", a Payment Session will be generated as you can see in the console logs:
+We need to create a session that will contain the card information used in this transaction:
+**Request:**
 ```
-Session updated with data: SESSION0002695081404E6099215K60	hosted_session.html:62
-Card Entered: 529415xxxxxx8418					hosted_session.html:63 
-Card Type: MASTERCARD						hosted_session.html:64
-Security code was provided.					hosted_session.html:68 
-The user entered a MasterCard credit card.			hosted_session.html:73 
+POST	https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/session/
 ```
+**Body:**
+None
+**Response**
+A sample response can be found [here](https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/response-sample/create-session-api.json).
 
 Token note of the Session.id geenrated `SESSION0002695081404E6099215K60`. This value references the card information and will need to be saved for the next steps.
 
-## Second Step: Initiate 3DS Authentication
-Now we will perform 3DS authentication on the transaction. If 3DS Authentication is not required for you, you can just skip to the fourth step.
+
+## Second Step: Update Session with Card Information
+Now update the session you have generated with the card information that will be used for the payment:
+**Request:**
+```
+PUT	https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/session/{{SessionId}}
+```
+**Body:**
+```js
+{
+	"sourceOfFunds": {
+		"provided": {
+			"card": {
+				"nameOnCard": "Nawaf",
+				"number": "5123450000000008",
+				"expiry": {
+		          "month": "05",
+		          "year": "21"
+		        },
+		        "securityCode": "100"
+			}
+		}
+	}
+}
+```
+**Response**
+A sample response can be found [here](https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/response-sample/update-session-api.json).
+
+
+## Third Step: Initiate 3DS Authentication
+Now we will perform 3DS authentication on the transaction. If 3DS Authentication is not required for you, you can just skip to the fifth step.
 
 **Request:**
 ```
@@ -68,7 +96,7 @@ PUT	https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/o
 A sample response can be found [here](https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/response-sample/initiate-authentication-api.json).
 
 
-## Third Step: Authenticate Payer with 3DS
+## Fourth Step: Authenticate Payer with 3DS
 After you have sent the API request for the Second Step, just simply make this request next:
 
 **Request:**
@@ -111,7 +139,8 @@ A sample response can be found [here](https://github.com/Mastercard-MEA/MPGS-Int
 
 An HTML will be returned to the user in the parameter `authentication.redirectHtml`. That HTML will containt the 3DS interaction page. You need to display the contents of that HTML to the user in order for them to complete the authentication. This part of the flow is completely between the cardholder and their issuing bank.
 
-## Fourth Step: Make A Payment Transaction
+
+## Fifth Step: Make A Payment Transaction
 After the authentication is complete, you can now send the payment request:
 
 **Request:**
@@ -184,8 +213,7 @@ You can also find the Postman envionement for the collections [here](https://git
 
 ## Full Official References
 This guide is unofficial, it is meant to simplify the official guides here:
-* [Official Hosted Session Guide](https://ap-gateway.mastercard.com/api/documentation/integrationGuidelines/hostedSession/integrationModelHostedSession.html)
-* [Official Session.js Library Reference](https://ap-gateway.mastercard.com/api/documentation/apiDocumentation/session/version/latest/api.html?locale=en_US)
+* [Official Direct Guide](https://ap-gateway.mastercard.com/api/documentation/integrationGuidelines/directPayment/integrationModelDirectPayment.html)
 * [Official API Reference](https://ap-gateway.mastercard.com/api/documentation/apiDocumentation/rest-json/version/latest/api.html?locale=en_US)
 
 For any issues with your integration, you need to reach out to your payment provider. 
