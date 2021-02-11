@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "f9a95d43-5f10-4eb6-a618-d611de18dd30",
+		"name": "Direct Flow using Session",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Session",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{ApiPassword}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "merchant.{{MerchantId}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/session/",
+					"protocol": "https",
+					"host": [
+						"{{MsoUrl}}"
+					],
+					"path": [
+						"api",
+						"rest",
+						"version",
+						"{{ApiVersion}}",
+						"merchant",
+						"{{MerchantId}}",
+						"session",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Session with Card",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "merchant.{{MerchantId}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{ApiPassword}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"sourceOfFunds\": {\n\t\t\"provided\": {\n\t\t\t\"card\": {\n\t\t\t\t\"nameOnCard\": \"Nawaf\",\n\t\t\t\t\"number\": \"5123450000000008\",\n\t\t\t\t\"expiry\": {\n\t\t          \"month\": \"05\",\n\t\t          \"year\": \"21\"\n\t\t        },\n\t\t        \"securityCode\": \"100\"\n\t\t\t}\n\t\t}\n\t}\n}"
+				},
+				"url": {
+					"raw": "https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/session/{{SessionId}}",
+					"protocol": "https",
+					"host": [
+						"{{MsoUrl}}"
+					],
+					"path": [
+						"api",
+						"rest",
+						"version",
+						"{{ApiVersion}}",
+						"merchant",
+						"{{MerchantId}}",
+						"session",
+						"{{SessionId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Initiate Authentication",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "merchant.{{MerchantId}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{ApiPassword}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"apiOperation\":\"INITIATE_AUTHENTICATION\",\r\n\t\"authentication\":{ \r\n\t\t\"acceptVersions\":\"3DS1,3DS2\",\r\n\t    \"channel\":\"PAYER_BROWSER\",\r\n\t    \"purpose\":\"PAYMENT_TRANSACTION\"\r\n\t},\r\n\t\"correlationId\":\"test\",\r\n\t\"order\":{\r\n\t\t\"reference\": \"OrdRef_{{AttemptNum}}\",\r\n    \t\"currency\":\"SAR\"\r\n\t},\r\n\t\"session\": {\r\n\t\t\"id\": \"{{SessionId}}\"\r\n\t},\r\n\t\"transaction\": {\r\n\t\t\"reference\": \"TrxRef_{{AttemptNum}}\"\r\n\t}\r\n}\r\n"
+				},
+				"url": {
+					"raw": "https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/order/OrdID_{{AttemptNum}}/transaction/TxnID_{{AttemptNum}}",
+					"protocol": "https",
+					"host": [
+						"{{MsoUrl}}"
+					],
+					"path": [
+						"api",
+						"rest",
+						"version",
+						"{{ApiVersion}}",
+						"merchant",
+						"{{MerchantId}}",
+						"order",
+						"OrdID_{{AttemptNum}}",
+						"transaction",
+						"TxnID_{{AttemptNum}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate Payer",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "merchant.{{MerchantId}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{ApiPassword}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"apiOperation\": \"AUTHENTICATE_PAYER\",\r\n\t\"authentication\":{\r\n\t\t\"redirectResponseUrl\":\t\"https://localhost:8000/\"\r\n\t},\r\n\t\"correlationId\":\"test\",\r\n\t\"device\": {\r\n\t\t\"browser\": \"MOZILLA\",\r\n\t    \"browserDetails\": {\r\n\t\t\t\"3DSecureChallengeWindowSize\": \"FULL_SCREEN\",\r\n\t\t    \"acceptHeaders\": \"application/json\",\r\n\t\t    \"colorDepth\": 24,\r\n\t\t    \"javaEnabled\": true,\r\n\t\t    \"language\": \"en-US\",\r\n\t\t    \"screenHeight\": 640,\r\n\t\t    \"screenWidth\": 480,\r\n\t\t    \"timeZone\": 273\r\n\t    },\r\n\t\t\"ipAddress\": \"127.0.0.1\"\r\n\t},\r\n\t\"order\":{\r\n\t\t\"amount\":\"1.00\",\r\n\t    \"currency\":\"SAR\"\r\n\t},\r\n\t\"session\": {\r\n\t\t\"id\": \"{{SessionId}}\"\r\n\t}\r\n}"
+				},
+				"url": {
+					"raw": "https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/order/OrdID_{{AttemptNum}}/transaction/TxnID_{{AttemptNum}}",
+					"protocol": "https",
+					"host": [
+						"{{MsoUrl}}"
+					],
+					"path": [
+						"api",
+						"rest",
+						"version",
+						"{{ApiVersion}}",
+						"merchant",
+						"{{MerchantId}}",
+						"order",
+						"OrdID_{{AttemptNum}}",
+						"transaction",
+						"TxnID_{{AttemptNum}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PAY",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{ApiPassword}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "merchant.{{MerchantId}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"apiOperation\": \"PAY\",\n\t\"authentication\":{\n        \"transactionId\": \"TxnID_{{AttemptNum}}\"\n    },\n\t\"order\": {\n\t\t\"amount\": 1.00,\n\t\t\"currency\": \"SAR\",\n\t\t\"reference\": \"OrdRef_{{AttemptNum}}\"\n\t},\n\t\"transaction\": {\n\t\t\"reference\": \"TrxRef_{{AttemptNum}}\"\n    },\n\t\"session\": {\n\t\t\"id\": \"{{SessionId}}\"\n\t},\n\t\"sourceOfFunds\": {\n\t\t\"type\": \"CARD\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/order/OrdID_{{AttemptNum}}/transaction/1",
+					"protocol": "https",
+					"host": [
+						"{{MsoUrl}}"
+					],
+					"path": [
+						"api",
+						"rest",
+						"version",
+						"{{ApiVersion}}",
+						"merchant",
+						"{{MerchantId}}",
+						"order",
+						"OrdID_{{AttemptNum}}",
+						"transaction",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tokenize",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "{{ApiPassword}}",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "merchant.{{MerchantId}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"session\": {\n\t\t\"id\": \"{{SessionId}}\"\n\t},\n\t\"sourceOfFunds\": {\n\t\t\"type\": \"CARD\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "https://{{MsoUrl}}/api/rest/version/{{ApiVersion}}/merchant/{{MerchantId}}/token",
+					"protocol": "https",
+					"host": [
+						"{{MsoUrl}}"
+					],
+					"path": [
+						"api",
+						"rest",
+						"version",
+						"{{ApiVersion}}",
+						"merchant",
+						"{{MerchantId}}",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
