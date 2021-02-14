@@ -1,5 +1,5 @@
 # Pay with Token Guide & Samples
-A quick guide to pay to pay using a previously generated token.
+A quick guide to pay using a previously generated token.
 
 ## Disclaimer
 The following guide contains an explanation of using the Direct Integration Model. This guide is by no means an exhaustive one and only represents a scenario where the merchant is enabled to use some of the most common features of the Gateway. Additional features may need to be configured separately.
