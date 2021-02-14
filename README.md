@@ -36,5 +36,7 @@ The following <ins>unofficial</ins> guide contains a simplified explanation of M
 ## Mobile SDKs
 - [IOS SDK](https://github.com/Mastercard-Gateway/gateway-ios-sdk)
 - [Android SDK](https://github.com/Mastercard-Gateway/gateway-android-sdk)
-- [This guide explains how you can develop your own SDK for other platforms]()
+
+## Pay with Token
+[Short guide for how to pay using a token can be found here.](https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/pay-with-token.md)
 
