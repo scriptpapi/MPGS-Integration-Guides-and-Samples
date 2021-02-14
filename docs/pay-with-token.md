@@ -1,10 +1,6 @@
 # Pay with Token Guide & Samples
 A quick guide to pay using a previously generated token.
 
-## Disclaimer
-The following guide contains an explanation of using the Direct Integration Model. This guide is by no means an exhaustive one and only represents a scenario where the merchant is enabled to use some of the most common features of the Gateway. Additional features may need to be configured separately.
-Below samples are examples for reference only, while configuring your actual live merchants on the platform, always consider the risk and financial impact, as well as your policies and scheme and local rule and regulation. Follow this guide at your own responsibility. Make sure to read [Full References](#Full-Official-References)
-
 ## First Step: Generating the Token
 To tokenize the card, send the following request after the card information was collected into a payment session:
 
