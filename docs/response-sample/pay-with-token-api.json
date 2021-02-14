@@ -1,0 +1,162 @@
+{
+    "authentication": {
+        "3ds": {
+            "acsEci": "02",
+            "authenticationToken": "kHyn+7YFi1EUAREAAAAvNUe6Hv8=",
+            "transactionId": "23e470bc-0858-4334-8076-ef995ef6ffb3"
+        },
+        "3ds2": {
+            "dsTransactionId": "23e470bc-0858-4334-8076-ef995ef6ffb3",
+            "protocolVersion": "2.1.0",
+            "transactionStatus": "Y"
+        },
+        "transactionId": "TxnID_119",
+        "version": "3DS2"
+    },
+    "authorizationResponse": {
+        "cardSecurityCodeError": "M",
+        "commercialCard": "888",
+        "commercialCardIndicator": "3",
+        "financialNetworkCode": "777",
+        "posData": "1025100006600",
+        "posEntryMode": "812",
+        "processingCode": "003000",
+        "responseCode": "00",
+        "stan": "166494",
+        "transactionIdentifier": "123456789"
+    },
+    "gatewayEntryPoint": "WEB_SERVICES_API",
+    "merchant": "<Merchant ID>",
+    "order": {
+        "amount": 1,
+        "authenticationStatus": "AUTHENTICATION_SUCCESSFUL",
+        "chargeback": {
+            "amount": 0,
+            "currency": "SAR"
+        },
+        "creationTime": "2021-02-14T16:11:30.228Z",
+        "currency": "SAR",
+        "fundingStatus": "IN_PROGRESS",
+        "id": "OrdID_119",
+        "lastUpdatedTime": "2021-02-14T16:14:24.654Z",
+        "merchantAmount": 1,
+        "merchantCategoryCode": "1234",
+        "merchantCurrency": "SAR",
+        "reference": "OrdRef_119",
+        "status": "CAPTURED",
+        "totalAuthorizedAmount": 1,
+        "totalCapturedAmount": 1,
+        "totalRefundedAmount": 0
+    },
+    "response": {
+        "acquirerCode": "00",
+        "acquirerMessage": "Approved",
+        "cardSecurityCode": {
+            "acquirerCode": "M",
+            "gatewayCode": "MATCH"
+        },
+        "gatewayCode": "APPROVED"
+    },
+    "result": "SUCCESS",
+    "risk": {
+        "response": {
+            "gatewayCode": "ACCEPTED",
+            "review": {
+                "decision": "NOT_REQUIRED"
+            },
+            "rule": [
+                {
+                    "data": "NO_LIABILITY_SHIFT",
+                    "name": "MERCHANT_3D_SECURE",
+                    "recommendation": "NO_ACTION",
+                    "type": "MERCHANT_RULE"
+                },
+                {
+                    "data": "512345",
+                    "name": "MERCHANT_BIN_RANGE",
+                    "recommendation": "NO_ACTION",
+                    "type": "MERCHANT_RULE"
+                },
+                {
+                    "data": "M",
+                    "name": "MERCHANT_CSC",
+                    "recommendation": "NO_ACTION",
+                    "type": "MERCHANT_RULE"
+                },
+                {
+                    "name": "SUSPECT_CARD_LIST",
+                    "recommendation": "NO_ACTION",
+                    "type": "MERCHANT_RULE"
+                },
+                {
+                    "name": "TRUSTED_CARD_LIST",
+                    "recommendation": "NO_ACTION",
+                    "type": "MERCHANT_RULE"
+                },
+                {
+                    "data": "NO_RULES",
+                    "name": "MSO_3D_SECURE",
+                    "recommendation": "NO_ACTION",
+                    "type": "MSO_RULE"
+                },
+                {
+                    "data": "512345",
+                    "name": "MSO_BIN_RANGE",
+                    "recommendation": "NO_ACTION",
+                    "type": "MSO_RULE"
+                },
+                {
+                    "data": "M",
+                    "name": "MSO_CSC",
+                    "recommendation": "NO_ACTION",
+                    "type": "MSO_RULE"
+                }
+            ]
+        }
+    },
+    "sourceOfFunds": {
+        "provided": {
+            "card": {
+                "brand": "MASTERCARD",
+                "expiry": {
+                    "month": "5",
+                    "year": "21"
+                },
+                "fundingMethod": "CREDIT",
+                "issuer": "AFRILAND FIRST BANK",
+                "number": "512345xxxxxx0008",
+                "scheme": "MASTERCARD"
+            }
+        },
+        "token": "5123451941930008",
+        "type": "CARD"
+    },
+    "timeOfLastUpdate": "2021-02-14T16:14:24.654Z",
+    "timeOfRecord": "2021-02-14T16:14:24.364Z",
+    "transaction": {
+        "acquirer": {
+            "batch": 20210214,
+            "date": "0214",
+            "id": "SYSTEST_ACQ_S2I",
+            "merchantId": "<Merchant ID>",
+            "settlementDate": "2021-02-14",
+            "timeZone": "+1000",
+            "transactionId": "123456789"
+        },
+        "amount": 1,
+        "authenticationStatus": "AUTHENTICATION_SUCCESSFUL",
+        "authorizationCode": "166494",
+        "currency": "SAR",
+        "funding": {
+            "status": "IN_PROGRESS"
+        },
+        "id": "1",
+        "receipt": "104516166494",
+        "reference": "TrxRef_119",
+        "source": "INTERNET",
+        "stan": "166494",
+        "terminal": "555",
+        "type": "PAYMENT"
+    },
+    "version": "57"
+}
