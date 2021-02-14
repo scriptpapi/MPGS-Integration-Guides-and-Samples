@@ -202,7 +202,7 @@ A sample response can be found [here](https://github.com/Mastercard-MEA/MPGS-Int
 Take note of the parameter `"token": "5123458154060008"`, this is the token number referenceing the saved card. Store this value in your system for future payments.
 
 ### 2. Making a Payment Using Tokenized a Card
-You can find the guide for payment using a token here.
+[You can find the guide for payment using a token here.](https://github.com/Mastercard-MEA/MPGS-Integration-Guides-and-Samples/blob/main/docs/pay-with-token.md)
 
 ## Testing
 You can find the official test cards and the guide to use the Gateway Simulator [here](https://ap-gateway.mastercard.com/api/documentation/integrationGuidelines/supportedFeatures/testAndGoLive.html?locale=en_US).
