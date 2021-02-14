@@ -10,6 +10,8 @@ The following <ins>unofficial</ins> guide contains a simplified explanation of M
 3. [Hosted Session Integration Method](#Hosted-Session-Integration-Method)
 4. [Direct Integration Method](#Direct-Integration-Method)
 5. [Mobile SDKs](#Mobile-SDKs)
+6. [Pay with Token](#Pay-with-Token)
+
 
 ## Comparison of Integration Methods
 | Hosted Checkout                                                  | Hosted Session                                                                            | Direct                                                                                    |
