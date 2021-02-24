@@ -26,7 +26,7 @@ On your front-end, import the Session.js library into your to create the payment
 
 <head>
     <!-- INCLUDE SESSION.JS JAVASCRIPT LIBRARY -->
-    <script src="https://test-gateway.mastercard.com/form/version/57/merchant/TEST42069/session.js"></script>
+    <script src="https://<Acquirer Gateway Domain>/form/version/57/merchant/<Merchant ID>/session.js"></script>
     <!-- APPLY CLICK-JACKING STYLING AND HIDE CONTENTS OF THE PAGE -->
     <style id="antiClickjack">
         body {
